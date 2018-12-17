@@ -20,5 +20,5 @@ class ApplicationController < Sinatra::Base
     Article.create (name: params[:name], content: params[:content])
     erb :index
   end
-  
+
 end
