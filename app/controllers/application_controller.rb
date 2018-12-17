@@ -31,6 +31,10 @@ class ApplicationController < Sinatra::Base
 
   get '/posts/:id' do
     @post = Post.find(params[:id])
+    if params.keys.include? "name"
+      Post.update params[:id], name: params[:name], content: params[:content]
+      @post = Post.find(params[:id])
+    end
 
     erb :show
   end
